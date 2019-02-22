@@ -1,23 +1,31 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/towers/Tower.gd" type="Script" id=1]
-[ext_resource path="res://assets/towerdefense/towerDefense_tile181.png" type="Texture" id=2]
-[ext_resource path="res://assets/towerdefense/towerDefense_tile249.png" type="Texture" id=3]
+[ext_resource path="res://nodes/towers/Ray.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/towerdefense/towerDefense_tile181.png" type="Texture" id=3]
+[ext_resource path="res://assets/towerdefense/towerDefense_tile249.png" type="Texture" id=4]
 
 [node name="TowerTestScene" type="Node" index="0"]
 
 [node name="Tower" type="Node2D" parent="." index="0"]
 
+position = Vector2( 205.799, 238.961 )
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 shoot_range = 600
+ray_scene = ExtResource( 2 )
+projectile_color = Color( 0.984375, 0.97326, 0.699829, 1 )
+damage_per_shot = null
+shoot_delay = 1
 
 [node name="Base" type="Sprite" parent="Tower" index="0"]
 
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Weapon" type="Sprite" parent="Tower" index="1"]
 
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Animation", "Offset" ]
 
 [node name="RayCast2D" type="RayCast2D" parent="Tower/Weapon" index="0"]
 
@@ -32,5 +40,14 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 position = Vector2( 0, -25 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="ShootTimer" type="Timer" parent="Tower" index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[connection signal="timeout" from="Tower/ShootTimer" to="Tower" method="_on_ShootTimer_timeout"]
 
 
