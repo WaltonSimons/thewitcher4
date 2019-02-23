@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://scripts/Map.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Terrain.gd" type="Script" id=2]
@@ -28,6 +28,24 @@
 [ext_resource path="res://assets/tanks/tileGrass_roadSplitS.png" type="Texture" id=26]
 [ext_resource path="res://assets/tanks/tileGrass_roadSplitW.png" type="Texture" id=27]
 [ext_resource path="res://assets/tanks/tileGrass_roadSplitE.png" type="Texture" id=28]
+[ext_resource path="res://assets/scifi/Tile/scifiTile_01.png" type="Texture" id=29]
+[ext_resource path="res://assets/scifi/Tile/scifiTile_41.png" type="Texture" id=30]
+[ext_resource path="res://assets/scifi/Tile/scifiTile_04.png" type="Texture" id=31]
+[ext_resource path="res://assets/scifi/Tile/scifiTile_03.png" type="Texture" id=32]
+[ext_resource path="res://assets/scifi/Tile/scifiTile_17.png" type="Texture" id=33]
+[ext_resource path="res://assets/scifi/Tile/scifiTile_18.png" type="Texture" id=34]
+[ext_resource path="res://assets/scifi/Tile/scifiTile_05.png" type="Texture" id=35]
+[ext_resource path="res://assets/scifi/Tile/scifiTile_31.png" type="Texture" id=36]
+[ext_resource path="res://assets/scifi/Tile/scifiTile_32.png" type="Texture" id=37]
+[ext_resource path="res://scenes/test2.gd" type="Script" id=38]
+[ext_resource path="res://assets/scifi/Unit/scifiUnit_04.png" type="Texture" id=39]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array(  )
+}
 
 [node name="MapTestScene" type="Node" index="0"]
 
@@ -36,8 +54,9 @@
 position = Vector2( 485.507, 279.814 )
 scale = Vector2( 1.3355, 1.14075 )
 script = ExtResource( 1 )
-terrain_type = NodePath("DesertTerrain")
-map_layout = "res://maps/test.map"
+terrain_type = NodePath("GrassyTerrain")
+map_layout = "res://maps/test2.map"
+map_path = "res://maps/test2.path.map"
 
 [node name="Tiles" type="Node2D" parent="Map" index="0"]
 
@@ -79,5 +98,43 @@ splitN = ExtResource( 25 )
 splitS = ExtResource( 26 )
 splitW = ExtResource( 27 )
 splitE = ExtResource( 28 )
+
+[node name="Sci-fiTerrain" type="Node" parent="Map" index="3"]
+
+script = ExtResource( 2 )
+basic1 = ExtResource( 29 )
+basic2 = ExtResource( 30 )
+horizontal = ExtResource( 31 )
+vertical = ExtResource( 32 )
+corner_upper_left = ExtResource( 33 )
+corner_upper_right = ExtResource( 34 )
+crossroads = ExtResource( 35 )
+corner_lower_left = ExtResource( 36 )
+corner_lower_right = ExtResource( 37 )
+splitN = null
+splitS = null
+splitW = null
+splitE = null
+
+[node name="EnemiesPath" type="Path2D" parent="Map" index="4"]
+
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+curve = SubResource( 1 )
+script = ExtResource( 38 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Map/EnemiesPath" index="0"]
+
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Sprite" type="Sprite" parent="Map/EnemiesPath/PathFollow2D" index="0"]
+
+position = Vector2( -10.7858, -191.35 )
+texture = ExtResource( 39 )
 
 

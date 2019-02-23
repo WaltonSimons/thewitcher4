@@ -4,7 +4,9 @@ const TILE_SIZE = 64
 
 export(NodePath) var terrain_type
 export(String, FILE, ".map") var map_layout
+export(String, FILE, ".map") var map_path
 var map_layout_file = File.new()
+var map_path_file = File.new()
 
 onready var map_tiles = []
 onready var tile_templ = load("res://scenes/Tile.tscn")
@@ -48,6 +50,11 @@ func _ready():
 			map_row.append(sprite)
 			
 	self.create_map_tex()
+	
+	self.map_path_file.open(map_path, map_path_file.READ)
+	var path_content = self.map_path_file.get_as_text()
+	path_content = path_content.split('\n')
+	self.create_enemies_path(path_content)
 			
 func create_map_tex():	
 	for row in len(self.map_tiles):
@@ -56,4 +63,38 @@ func create_map_tex():
 			tile_inst.texture = self.map_tiles[row][tile]
 			$Tiles.add_child(tile_inst)
 			tile_inst.transform.origin = Vector2(tile * TILE_SIZE, row * TILE_SIZE)
+			
 	
+func find_path_start(layout):
+	for row in len(layout):
+		for tile in len(layout[row]):
+			if layout[row][tile] == 'S':
+				return Vector2(row, tile) 	
+			
+func create_path_node(layout, last_node):
+	$EnemiesPath.curve.add_point(Vector2(last_node.y * TILE_SIZE, last_node.x * TILE_SIZE))
+	
+	var node_path = layout[last_node.x][last_node.y]
+	var move_to = last_node
+
+	if node_path == 'S' or node_path == 'v':
+		move_to.x += 1
+	elif node_path == '^':
+		move_to.x -= 1
+	elif node_path == '>':
+		move_to.y += 1
+	elif node_path == '<':
+		move_to.y -= 1
+		
+	return move_to
+			
+func create_enemies_path(layout):
+	var start = find_path_start(layout)
+	
+	var last_node = start
+	while (layout[last_node.x][last_node.y] != 'B'):
+		last_node = create_path_node(layout, last_node)
+		
+#	for p in $EnemiesPath.curve:
+		
+		
