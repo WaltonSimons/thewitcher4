@@ -8,10 +8,10 @@ export(String, FILE, ".map") var map_path
 var map_layout_file = File.new()
 var map_path_file = File.new()
 
-onready var cursor = load("res://scenes/Cursor.tscn").instance()
+onready var cursor = load("res://nodes/Cursor.tscn").instance()
 
 onready var map_tiles = []
-onready var tile_templ = load("res://scenes/Tile.tscn")
+onready var tile_templ = load("res://nodes/Tile.tscn")
 
 func map_tile_to_sprite(tile, terrain_type):
 	if tile == 'O':
