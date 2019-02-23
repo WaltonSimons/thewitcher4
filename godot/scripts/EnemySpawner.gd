@@ -49,7 +49,7 @@ func _on_Timer_timeout():
 	var wave = waves[current_wave]
 	var enemy = wave[enemy_i]
 	
-	if enemy_i < len(wave):
+	if enemy_i < len(wave) - 1:
 		$Timer.wait_time = TIME_BETWEEN_SPAWNS
 		$Timer.start()
 		enemy_i += 1

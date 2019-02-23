@@ -121,8 +121,12 @@ func _on_UI_turret_bought_ui(turret_type, turret_icon):
 	
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
-		if turret_to_buy != null:
-			cursor.texture = cursor.original_texture
-			var built_turret = turret_to_buy.instance()
-			add_child(built_turret)
-			built_turret.position = cursor.position
+		var cpos = cursor.global_position
+		if cpos.x > 0 and cpos.x < TILE_SIZE * len(map_tiles[0]) and \
+		cpos.y > 2*TILE_SIZE and cpos.y < TILE_SIZE * len(map_tiles):
+			if turret_to_buy != null:
+				cursor.texture = cursor.original_texture
+				var built_turret = turret_to_buy.instance()
+				add_child(built_turret)
+				built_turret.position = cursor.position
+				turret_to_buy = null

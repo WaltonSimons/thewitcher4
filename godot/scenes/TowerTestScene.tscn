@@ -10,7 +10,6 @@
 [node name="Dummy" parent="." index="0" instance=ExtResource( 1 )]
 
 position = Vector2( 56.9999, 76.9998 )
-speed = 100
 
 [node name="Tween" type="Tween" parent="Dummy" index="2"]
 
@@ -25,7 +24,6 @@ script = ExtResource( 2 )
 [node name="Dummy4" parent="." index="1" instance=ExtResource( 1 )]
 
 position = Vector2( 128.598, 95.6154 )
-speed = 100
 
 [node name="Tween" type="Tween" parent="Dummy4" index="2"]
 
@@ -40,7 +38,6 @@ script = ExtResource( 2 )
 [node name="Dummy7" parent="." index="2" instance=ExtResource( 1 )]
 
 position = Vector2( 180.149, 94.1835 )
-speed = 100
 
 [node name="Tween" type="Tween" parent="Dummy7" index="2"]
 
@@ -55,7 +52,6 @@ script = ExtResource( 2 )
 [node name="Dummy12" parent="." index="3" instance=ExtResource( 1 )]
 
 position = Vector2( 101.391, 94.1835 )
-speed = 100
 
 [node name="Tween" type="Tween" parent="Dummy12" index="2"]
 
@@ -70,7 +66,6 @@ script = ExtResource( 2 )
 [node name="Dummy2" parent="." index="4" instance=ExtResource( 1 )]
 
 position = Vector2( 64.9999, 146 )
-speed = 100
 
 [node name="Tween" type="Tween" parent="Dummy2" index="2"]
 
@@ -85,7 +80,6 @@ script = ExtResource( 2 )
 [node name="Dummy5" parent="." index="5" instance=ExtResource( 1 )]
 
 position = Vector2( 136.598, 164.616 )
-speed = 100
 
 [node name="Tween" type="Tween" parent="Dummy5" index="2"]
 
@@ -100,7 +94,6 @@ script = ExtResource( 2 )
 [node name="Dummy9" parent="." index="6" instance=ExtResource( 1 )]
 
 position = Vector2( 188.149, 163.184 )
-speed = 100
 
 [node name="Tween" type="Tween" parent="Dummy9" index="2"]
 
@@ -115,7 +108,6 @@ script = ExtResource( 2 )
 [node name="Dummy10" parent="." index="7" instance=ExtResource( 1 )]
 
 position = Vector2( 109.391, 163.184 )
-speed = 100
 
 [node name="Tween" type="Tween" parent="Dummy10" index="2"]
 
@@ -130,7 +122,6 @@ script = ExtResource( 2 )
 [node name="Dummy3" parent="." index="8" instance=ExtResource( 1 )]
 
 position = Vector2( 66.1531, 230.503 )
-speed = 100
 
 [node name="Tween" type="Tween" parent="Dummy3" index="2"]
 
@@ -145,7 +136,6 @@ script = ExtResource( 2 )
 [node name="Dummy6" parent="." index="9" instance=ExtResource( 1 )]
 
 position = Vector2( 137.752, 249.119 )
-speed = 100
 
 [node name="Tween" type="Tween" parent="Dummy6" index="2"]
 
@@ -160,7 +150,6 @@ script = ExtResource( 2 )
 [node name="Dummy8" parent="." index="10" instance=ExtResource( 1 )]
 
 position = Vector2( 189.303, 247.687 )
-speed = 100
 
 [node name="Tween" type="Tween" parent="Dummy8" index="2"]
 
@@ -175,7 +164,6 @@ script = ExtResource( 2 )
 [node name="Dummy11" parent="." index="11" instance=ExtResource( 1 )]
 
 position = Vector2( 110.544, 247.687 )
-speed = 100
 
 [node name="Tween" type="Tween" parent="Dummy11" index="2"]
 
