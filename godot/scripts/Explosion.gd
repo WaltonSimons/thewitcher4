@@ -5,7 +5,7 @@ var radius
 var damage
 
 func _ready():
-	$Area2D/CollisionShape2D.get_shape().radius = radius
+	$Area2D/CollisionShape2D.get_shape().radius = 30
 
 func deal_damage():
 	for body in $Area2D.get_overlapping_bodies():

@@ -7,7 +7,8 @@ func shoot(shoot_range):
 	if $RayCast2D.is_colliding():
 		var col = $RayCast2D.get_collider()
 		if col:
-			launch_rocket(col.position)
+			if col is KinematicBody2D:
+				launch_rocket(col.position)
 
 func launch_rocket(target):
 	var rocket = rocket_scene.instance()
