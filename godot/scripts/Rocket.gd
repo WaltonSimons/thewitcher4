@@ -21,6 +21,6 @@ func explode():
 	explosion.global_position = global_position
 	explosion.damage = damage
 	explosion.radius = explosion_radius
-	get_parent().add_child(explosion)
+	get_tree().get_root().add_child(explosion)
 	explosion.explode()
 	queue_free()
