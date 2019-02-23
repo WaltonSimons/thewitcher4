@@ -1,5 +1,6 @@
 extends Control
 
+signal turret_bought_ui(turret_type)
 const PANEL_HEIGHT = 100
 
 func _ready():
@@ -17,11 +18,6 @@ func _ready():
 	$TopPanel/TurretButton2/TurretIcon2.rect_size = button_size
 	$TopPanel/TurretButton2/TurretIcon2.rect_position = icon_pos
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-
 
 func _on_TurretButton_turret_bought(turret_type):
-	print("DUPA")
+	emit_signal("turret_bought_ui", turret_type)

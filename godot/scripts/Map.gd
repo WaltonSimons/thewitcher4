@@ -14,6 +14,8 @@ onready var map_tiles = []
 onready var tile_templ = load("res://nodes/Tile.tscn")
 onready var enemy_spawner = load("res://nodes/enemies/EnemySpawner.tscn").instance()
 
+onready var turret_to_buy = null
+
 func map_tile_to_sprite(tile, terrain_type):
 	if tile == 'O':
 		return get_node(terrain_type).basic1
@@ -109,3 +111,6 @@ func create_enemies_path(layout):
 		
 func start_wave():
 	get_node('EnemySpawner').send_wave(0)
+
+func _on_UI_turret_bought_ui(turret_type):
+	turret_to_buy = turret_type

@@ -12,4 +12,4 @@ func _process(delta):
 	mouse.x = int(mouse.x/tile_size) * tile_size + tile_size/2
 	mouse.y = int(mouse.y/tile_size) * tile_size + tile_size/2
 	
-	self.transform.origin = mouse
+	self.global_position = mouse

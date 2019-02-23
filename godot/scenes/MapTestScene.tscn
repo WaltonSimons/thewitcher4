@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://scripts/Map.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Terrain.gd" type="Script" id=2]
@@ -39,6 +39,7 @@
 [ext_resource path="res://assets/scifi/Tile/scifiTile_32.png" type="Texture" id=37]
 [ext_resource path="res://scenes/test2.gd" type="Script" id=38]
 [ext_resource path="res://assets/scifi/Unit/scifiUnit_04.png" type="Texture" id=39]
+[ext_resource path="res://nodes/UI.tscn" type="PackedScene" id=40]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -47,10 +48,11 @@ _data = {
 "points": PoolVector2Array(  )
 }
 
-[node name="MapTestScene" type="Node"]
+[node name="MapTestScene" type="Node" index="0"]
 
 [node name="Map" type="Node2D" parent="." index="0"]
 
+position = Vector2( 0, 100 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 terrain_type = NodePath("GrassyTerrain")
@@ -134,5 +136,9 @@ lookahead = 4.0
 
 position = Vector2( -10.7858, -191.35 )
 texture = ExtResource( 39 )
+
+[node name="UI" parent="." index="1" instance=ExtResource( 40 )]
+
+[connection signal="turret_bought_ui" from="UI" to="Map" method="_on_UI_turret_bought_ui"]
 
 
