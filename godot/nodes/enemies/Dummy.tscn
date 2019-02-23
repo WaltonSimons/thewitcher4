@@ -11,7 +11,7 @@ custom_solver_bias = 0.0
 radius = 7.0
 height = 15.0
 
-[node name="Dummy" type="KinematicBody2D"]
+[node name="Dummy" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 2
@@ -56,6 +56,6 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[connection signal="health_changed" from="." to="HealthBar" method="_on_Dummy_health_changed"]
+[connection signal="health_changed" from="." to="HealthBar" method="_on_health_changed"]
 
 
