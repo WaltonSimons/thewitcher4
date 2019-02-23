@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/Dummy.gd" type="Script" id=1]
 [ext_resource path="res://assets/towerdefense/towerDefense_tile246.png" type="Texture" id=2]
+[ext_resource path="res://assets/enemies/health_bar.png" type="Texture" id=3]
+[ext_resource path="res://scripts/HealthBar.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -17,7 +19,7 @@ collision_mask = 2
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform" ]
-hit_points = 100
+max_hit_points = 100
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -27,5 +29,33 @@ texture = ExtResource( 2 )
 
 shape = SubResource( 1 )
 _sections_unfolded = [ "Material" ]
+
+[node name="HealthBar" type="Sprite" parent="." index="2"]
+
+self_modulate = Color( 1, 0.0664062, 0.0664062, 1 )
+position = Vector2( 0, -25 )
+scale = Vector2( 10, 0.5 )
+texture = ExtResource( 3 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="GreenBar" type="Sprite" parent="HealthBar" index="0"]
+
+self_modulate = Color( 0.570312, 1, 0.570312, 1 )
+position = Vector2( -1, 0 )
+texture = ExtResource( 3 )
+offset = Vector2( 1, 0 )
+_sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
+
+[node name="Tween" type="Tween" parent="HealthBar" index="1"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[connection signal="health_changed" from="." to="HealthBar" method="_on_Dummy_health_changed"]
 
 

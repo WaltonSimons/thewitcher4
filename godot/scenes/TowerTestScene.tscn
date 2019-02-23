@@ -1,16 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://nodes/towers/Tower.tscn" type="PackedScene" id=1]
 [ext_resource path="res://nodes/enemies/Dummy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Tween.gd" type="Script" id=3]
-[ext_resource path="res://nodes/Cursor.tscn" type="PackedScene" id=4]
 
 [node name="TowerTestScene" type="Node" index="0"]
 
 [node name="Tower" parent="." index="0" instance=ExtResource( 1 )]
 
 position = Vector2( 230.206, 283.28 )
-shoot_range = 6000
 projectile_color = Color( 0.980469, 0.937741, 0.658752, 1 )
 damage_per_shot = 20.0
 shoot_delay = 1.0
@@ -56,9 +54,5 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 script = ExtResource( 3 )
-
-[node name="Cursor" parent="." index="4" instance=ExtResource( 4 )]
-
-[node name="Dummy4" parent="." index="5" instance=ExtResource( 2 )]
 
 
