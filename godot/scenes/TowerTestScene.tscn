@@ -9,9 +9,6 @@
 [node name="Tower" parent="." index="0" instance=ExtResource( 1 )]
 
 position = Vector2( 230.206, 283.28 )
-projectile_color = Color( 0.980469, 0.937741, 0.658752, 1 )
-damage_per_shot = 20.0
-shoot_delay = 1.0
 
 [node name="Dummy" parent="." index="1" instance=ExtResource( 2 )]
 
