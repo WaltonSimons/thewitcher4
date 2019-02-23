@@ -46,14 +46,18 @@ func turn_towards_nearest_enemy():
 	var closest_distance = 0
 	var closest = null
 	for body in bodies:
-		var distance = position.distance_to(body.position)
+		var distance = global_position.distance_to(body.global_position)
+		print(distance)
+		print(body)
 		if closest == null:
 			closest = body
+			closest_distance = distance
 		elif distance < closest_distance:
 			closest = body
 			closest_distance = distance
 	if closest:
-		# rotate towards target
+		$Weapon.rotation = (position.angle_to_point(closest.global_position))
+		$Weapon.rotation_degrees -= 90
 
 func _on_ShootTimer_timeout():
 	shoot_at_position(get_global_mouse_position())

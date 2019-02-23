@@ -1,10 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/projectiles/ray.png" type="Texture" id=1]
 [ext_resource path="res://scripts/towers/Ray.gd" type="Script" id=2]
-[ext_resource path="res://scripts/Tween.gd" type="Script" id=3]
 
-[node name="Ray" type="Sprite"]
+[node name="Ray" type="Sprite" index="0"]
 
 scale = Vector2( 0.5, 1 )
 texture = ExtResource( 1 )
@@ -20,6 +19,5 @@ playback_speed = 1.0
 playback/active = false
 playback/repeat = false
 playback/speed = 1.0
-script = ExtResource( 3 )
 
 

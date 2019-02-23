@@ -17,7 +17,7 @@ _sections_unfolded = [ "Transform" ]
 shoot_range = 600
 ray_scene = ExtResource( 2 )
 projectile_color = Color( 0.984375, 0.97326, 0.699829, 1 )
-damage_per_shot = null
+damage_per_shot = 10.0
 shoot_delay = 100.0
 turn_speed = 10
 
