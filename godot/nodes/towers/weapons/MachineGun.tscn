@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/towerdefense/towerDefense_tile249.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Weapon.gd" type="Script" id=2]
+[ext_resource path="res://nodes/towers/Ray.tscn" type="PackedScene" id=3]
+
+[node name="Weapon" type="Sprite"]
+
+z_index = 2
+z_as_relative = false
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Animation", "Offset", "Z Index" ]
+damage_per_shot = 20.0
+ray_scene = ExtResource( 3 )
+projectile_color = Color( 1, 0.993835, 0.605469, 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="0"]
+
+rotation = 3.14159
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 50 )
+collision_mask = 2
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="ProjectileOrigin" type="Position2D" parent="." index="1"]
+
+position = Vector2( 0, -25 )
+_sections_unfolded = [ "Transform" ]
+
+

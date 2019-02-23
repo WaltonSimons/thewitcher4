@@ -11,7 +11,7 @@ func shoot(shoot_range):
 		if col:
 			col.take_hit(damage_per_shot)
 			dist = $ProjectileOrigin.global_position.distance_to(col.global_position)
-	draw_shoot(dist/2)
+			draw_shoot(dist/2)
 
 func draw_shoot(length):
 	var ray = ray_scene.instance()

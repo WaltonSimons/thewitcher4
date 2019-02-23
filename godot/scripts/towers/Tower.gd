@@ -14,11 +14,6 @@ func set_shoot_range(value):
 
 func _process(delta):
 	turn_towards_nearest_enemy()
-	#$Weapon.look_at(get_global_mouse_position())
-	#$Weapon.rotation_degrees += 90
-	if Input.is_action_just_pressed('left_click'):
-		shoot_at_position(get_global_mouse_position())
-
 
 func turn_towards_nearest_enemy():
 	var bodies = $RangeArea.get_overlapping_bodies()
