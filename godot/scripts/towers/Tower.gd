@@ -22,13 +22,13 @@ func _process(delta):
 	if Input.is_action_just_pressed('left_click'):
 		shoot_at_position(get_global_mouse_position())
 
-func shoot_at_position(position):
+func shoot_at_position(target_position):
 	if $Weapon/RayCast2D.is_colliding():
 		var col = $Weapon/RayCast2D.get_collider()
 		if col:
 			col.take_hit(damage_per_shot)
-			position = col.position
-	var dist = $Weapon/ProjectileOrigin.global_position.distance_to(position)
+			target_position = col.global_position
+	var dist = $Weapon/ProjectileOrigin.global_position.distance_to(target_position)
 	dist = clamp(dist, 0, shoot_range)
 	draw_shoot(dist/2)
 
@@ -47,8 +47,6 @@ func turn_towards_nearest_enemy():
 	var closest = null
 	for body in bodies:
 		var distance = global_position.distance_to(body.global_position)
-		print(distance)
-		print(body)
 		if closest == null:
 			closest = body
 			closest_distance = distance
