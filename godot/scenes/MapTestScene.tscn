@@ -36,11 +36,12 @@
 position = Vector2( 485.507, 279.814 )
 scale = Vector2( 1.3355, 1.14075 )
 script = ExtResource( 1 )
-terrain_type = NodePath("GrassyTerrain")
+terrain_type = NodePath("DesertTerrain")
 map_layout = "res://maps/test.map"
 
 [node name="Tiles" type="Node2D" parent="Map" index="0"]
 
+position = Vector2( -223.079, -114.482 )
 _sections_unfolded = [ "Region" ]
 
 [node name="DesertTerrain" type="Node" parent="Map" index="1"]

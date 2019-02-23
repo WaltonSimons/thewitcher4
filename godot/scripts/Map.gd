@@ -12,6 +12,18 @@ onready var tile_templ = load("res://scenes/Tile.tscn")
 func map_tile_to_sprite(tile, terrain_type):
 	if tile == 'O':
 		return get_node(terrain_type).basic1
+	elif tile == '┌':
+		return get_node(terrain_type).corner_upper_left
+	elif tile == '┐':
+		return get_node(terrain_type).corner_upper_right
+	elif tile == '└':
+		return get_node(terrain_type).corner_lower_left
+	elif tile =='┘':
+		return get_node(terrain_type).corner_lower_right
+	elif tile == '-':
+		return get_node(terrain_type).horizontal
+	elif tile == '|':
+		return get_node(terrain_type).vertical
 
 func _ready():	
 	self.map_layout_file.open(map_layout, map_layout_file.READ)
@@ -32,5 +44,5 @@ func create_map_tex():
 			var tile_inst = tile_templ.instance()
 			tile_inst.texture = self.map_tiles[row][tile]
 			$Tiles.add_child(tile_inst)
-			tile_inst.transform.origin = Vector2(row * TILE_SIZE, tile * TILE_SIZE)
+			tile_inst.transform.origin = Vector2(tile * TILE_SIZE, row * TILE_SIZE)
 	
