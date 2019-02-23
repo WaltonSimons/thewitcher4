@@ -1,6 +1,9 @@
 extends PathFollow2D
 
-export (int) var speed = 100
+var unit
 
 func _process(delta):
-	self.set_offset(self.get_offset() + speed*delta)
+	if unit:
+		self.set_offset(self.get_offset() + unit.get_speed()*delta)
+	else:
+		queue_free()

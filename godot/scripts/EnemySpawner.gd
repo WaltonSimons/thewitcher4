@@ -42,7 +42,7 @@ func spawn_enemy(i):
 	enemy.transform.origin = spawn_point
 	var path_follower = enemy_path_follower.instance()
 	path_follower.add_child(enemy)
-	path_follower.speed = enemy.get_speed()
+	path_follower.unit = enemy
 	enemy.position = Vector2(0, 0)
 	enemy_path.add_child(path_follower)
 

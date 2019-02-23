@@ -12,6 +12,5 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 script = ExtResource( 1 )
-speed = 100
 
 
