@@ -12,6 +12,8 @@ config_version=3
 
 config/name="Gamejam 2019"
 run/main_scene="res://scenes/TowerTestScene.tscn"
+boot_splash/image="res://assets/logo.png"
+boot_splash/fullsize=false
 config/icon="res://icon.png"
 
 [importer_defaults]
