@@ -19,9 +19,9 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 10.0
+radius = 30.0
 
-[node name="Explosion" type="AnimatedSprite" index="0"]
+[node name="Explosion" type="AnimatedSprite"]
 
 frames = SubResource( 1 )
 animation = "default"
