@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/UI.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/metalPanel_yellow.png" type="Texture" id=2]
 [ext_resource path="res://assets/ui/metalPanel_greenCorner.png" type="Texture" id=3]
-[ext_resource path="res://assets/towerdefense/towerDefense_tile249.png" type="Texture" id=4]
-[ext_resource path="res://assets/ui/metalPanel_redCorner.png" type="Texture" id=5]
-[ext_resource path="res://assets/towerdefense/towerDefense_tile250.png" type="Texture" id=6]
+[ext_resource path="res://scripts/TurretButton.gd" type="Script" id=4]
+[ext_resource path="res://nodes/towers/Tower.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/towerdefense/towerDefense_tile249.png" type="Texture" id=6]
+[ext_resource path="res://assets/ui/metalPanel_redCorner.png" type="Texture" id=7]
+[ext_resource path="res://assets/towerdefense/towerDefense_tile250.png" type="Texture" id=8]
 
 [node name="UI" type="Control" index="0"]
 
@@ -67,7 +69,9 @@ enabled_focus_mode = 2
 shortcut = null
 group = null
 texture_normal = ExtResource( 3 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Rect", "Textures" ]
+turret_prefab = ExtResource( 5 )
 
 [node name="TurretIcon" type="TextureRect" parent="TopPanel/TurretButton" index="0"]
 
@@ -83,7 +87,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Anchor", "Rect" ]
@@ -130,7 +134,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 7 )
 _sections_unfolded = [ "Margin", "Rect", "Textures" ]
 
 [node name="TurretIcon2" type="TextureRect" parent="TopPanel/TurretButton2" index="0"]
@@ -147,7 +151,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 expand = true
 stretch_mode = 0
 
@@ -172,5 +176,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect" ]
+
+[connection signal="turret_bought" from="TopPanel/TurretButton" to="." method="_on_TurretButton_turret_bought"]
 
 
