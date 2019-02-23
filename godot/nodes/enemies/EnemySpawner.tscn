@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/EnemySpawner.gd" type="Script" id=1]
+[ext_resource path="res://nodes/enemies/Dummy.tscn" type="PackedScene" id=2]
+
+[node name="EnemySpawner" type="Node" index="0"]
+
+script = ExtResource( 1 )
+enemy0 = ExtResource( 2 )
+enemy1 = null
+enemy2 = null
+
+[node name="Timer" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+
