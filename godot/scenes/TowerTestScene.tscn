@@ -1,53 +1,59 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scripts/towers/Tower.gd" type="Script" id=1]
-[ext_resource path="res://nodes/towers/Ray.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/towerdefense/towerDefense_tile181.png" type="Texture" id=3]
-[ext_resource path="res://assets/towerdefense/towerDefense_tile249.png" type="Texture" id=4]
+[ext_resource path="res://nodes/towers/Tower.tscn" type="PackedScene" id=1]
+[ext_resource path="res://nodes/enemies/Dummy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Tween.gd" type="Script" id=3]
 
 [node name="TowerTestScene" type="Node" index="0"]
 
-[node name="Tower" type="Node2D" parent="." index="0"]
+[node name="Tower" parent="." index="0" instance=ExtResource( 1 )]
 
-position = Vector2( 205.799, 238.961 )
-script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
-shoot_range = 600
-ray_scene = ExtResource( 2 )
-projectile_color = Color( 0.984375, 0.97326, 0.699829, 1 )
-damage_per_shot = null
-shoot_delay = 1
+position = Vector2( 230.206, 283.28 )
+shoot_range = 6000
+projectile_color = Color( 0.980469, 0.937741, 0.658752, 1 )
+damage_per_shot = 20.0
+shoot_delay = 1.0
 
-[node name="Base" type="Sprite" parent="Tower" index="0"]
+[node name="Dummy" parent="." index="1" instance=ExtResource( 2 )]
 
-texture = ExtResource( 3 )
+position = Vector2( 56.9999, 76.9998 )
 
-[node name="Weapon" type="Sprite" parent="Tower" index="1"]
+[node name="Tween" type="Tween" parent="Dummy" index="2"]
 
-texture = ExtResource( 4 )
-_sections_unfolded = [ "Animation", "Offset" ]
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+script = ExtResource( 3 )
 
-[node name="RayCast2D" type="RayCast2D" parent="Tower/Weapon" index="0"]
+[node name="Dummy2" parent="." index="2" instance=ExtResource( 2 )]
 
-rotation = 3.14159
-enabled = false
-exclude_parent = true
-cast_to = Vector2( 0, 50 )
-collision_mask = 1
-_sections_unfolded = [ "Transform", "Z Index" ]
+position = Vector2( 64.9999, 146 )
 
-[node name="ProjectileOrigin" type="Position2D" parent="Tower/Weapon" index="1"]
+[node name="Tween" type="Tween" parent="Dummy2" index="2"]
 
-position = Vector2( 0, -25 )
-_sections_unfolded = [ "Transform" ]
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+script = ExtResource( 3 )
 
-[node name="ShootTimer" type="Timer" parent="Tower" index="2"]
+[node name="Dummy3" parent="." index="3" instance=ExtResource( 2 )]
 
-process_mode = 1
-wait_time = 1.0
-one_shot = false
-autostart = true
+position = Vector2( 122, 199 )
 
-[connection signal="timeout" from="Tower/ShootTimer" to="Tower" method="_on_ShootTimer_timeout"]
+[node name="Tween" type="Tween" parent="Dummy3" index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+script = ExtResource( 3 )
 
 
