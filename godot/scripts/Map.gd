@@ -8,6 +8,8 @@ export(String, FILE, ".map") var map_path
 var map_layout_file = File.new()
 var map_path_file = File.new()
 
+onready var cursor = load("res://scenes/Cursor.tscn").instance()
+
 onready var map_tiles = []
 onready var tile_templ = load("res://scenes/Tile.tscn")
 
@@ -39,6 +41,11 @@ func map_tile_to_sprite(tile, terrain_type):
 							
 
 func _ready():	
+	add_child(cursor)
+	
+	$Tiles.transform.origin = Vector2(TILE_SIZE/2, TILE_SIZE/2)
+	cursor.scale = Vector2(TILE_SIZE * 0.01, TILE_SIZE * 0.01)
+	
 	self.map_layout_file.open(map_layout, map_layout_file.READ)
 	var content = self.map_layout_file.get_as_text()
 	content = content.split('\n')
@@ -94,7 +101,5 @@ func create_enemies_path(layout):
 	var last_node = start
 	while (layout[last_node.x][last_node.y] != 'B'):
 		last_node = create_path_node(layout, last_node)
-		
-#	for p in $EnemiesPath.curve:
 		
 		
