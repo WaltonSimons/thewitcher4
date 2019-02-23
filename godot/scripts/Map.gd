@@ -111,7 +111,7 @@ func create_enemies_path(layout):
 		
 		
 func start_wave():
-	get_node('EnemySpawner').send_wave(0)
+	get_node('EnemySpawner').send_wave(0, $EnemiesPath)
 
 func _on_UI_turret_bought_ui(turret_type, turret_icon):
 	turret_to_buy = turret_type

@@ -6,6 +6,7 @@ export(Vector2) var spawn_point
 export (PackedScene) var enemy0
 export (PackedScene) var enemy1
 export (PackedScene) var enemy2
+export (PackedScene) var enemy_path_follower
 
 var waves = [
 	[0,0,0,0,0],
@@ -14,14 +15,17 @@ var waves = [
 ]
 
 var current_wave = 0
-var enemy_i = 0;
+var enemy_i = 0
+
+var enemy_path = null
 
 func _ready():
 	#send_wave(0)
 	pass
 
-func send_wave(i):
-	var enemy_i = 0
+func send_wave(i, path):
+	enemy_i = 0
+	enemy_path = path
 	$Timer.one_shot = true
 	$Timer.wait_time = TIME_BETWEEN_SPAWNS
 	$Timer.start()
@@ -34,11 +38,11 @@ func spawn_enemy(i):
 		enemy = enemy1.instance()
 	elif i == 2:
 		enemy = enemy2.instance()
-		
-	print(spawn_point)
-	print(enemy)
+
 	enemy.transform.origin = spawn_point
-	add_child(enemy)
+	var path_follower = enemy_path_follower.instance()
+	path_follower.add_child(enemy)
+	enemy_path.add_child(path_follower)
 
 func _on_Timer_timeout():
 	var wave = waves[current_wave]

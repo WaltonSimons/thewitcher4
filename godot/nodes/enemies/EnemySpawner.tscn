@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/EnemySpawner.gd" type="Script" id=1]
 [ext_resource path="res://nodes/enemies/Dummy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://nodes/enemies/EnemyPathFollower.tscn" type="PackedScene" id=3]
 
 [node name="EnemySpawner" type="Node"]
 
@@ -10,6 +11,7 @@ spawn_point = Vector2( 256, 32 )
 enemy0 = ExtResource( 2 )
 enemy1 = null
 enemy2 = null
+enemy_path_follower = ExtResource( 3 )
 
 [node name="Timer" type="Timer" parent="." index="0"]
 
