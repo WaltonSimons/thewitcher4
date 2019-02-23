@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/towers/Tower.gd" type="Script" id=1]
+[ext_resource path="res://nodes/towers/Ray.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/towerdefense/towerDefense_tile181.png" type="Texture" id=3]
+[ext_resource path="res://assets/towerdefense/towerDefense_tile249.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[node name="Tower" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+shoot_range = 600
+ray_scene = ExtResource( 2 )
+projectile_color = Color( 0.984375, 0.97326, 0.699829, 1 )
+damage_per_shot = null
+shoot_delay = 100.0
+turn_speed = 10
+
+[node name="Base" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 3 )
+
+[node name="Weapon" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Animation", "Offset" ]
+
+[node name="RayCast2D" type="RayCast2D" parent="Weapon" index="0"]
+
+rotation = 3.14159
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 50 )
+collision_mask = 2
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="ProjectileOrigin" type="Position2D" parent="Weapon" index="1"]
+
+position = Vector2( 0, -25 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="ShootTimer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[node name="RangeArea" type="Area2D" parent="." index="3"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangeArea" index="0"]
+
+shape = SubResource( 1 )
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
+
+
