@@ -19,5 +19,11 @@ func _ready():
 	$TopPanel/TurretButton2/TurretIcon2.rect_position = icon_pos
 
 
-func _on_TurretButton_turret_bought(turret_type, turret_icon):
+func turret_bought(turret_type, turret_icon):
 	emit_signal("turret_bought_ui", turret_type, turret_icon)
+
+func _on_TurretButton_turret_bought(turret_type, turret_icon):
+	turret_bought(turret_type, turret_icon)
+
+func _on_TurretButton2_turret_bought(turret_type, turret_icon):
+	turret_bought(turret_type, turret_icon)

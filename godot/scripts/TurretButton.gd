@@ -8,4 +8,4 @@ func _ready():
 
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
-		emit_signal("turret_bought", turret_prefab, $TurretIcon.texture)
+		emit_signal("turret_bought", turret_prefab, get_child(0).texture)

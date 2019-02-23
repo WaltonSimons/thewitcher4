@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/ui/metalPanel_redCorner.png" type="Texture" id=6]
 [ext_resource path="res://nodes/towers/RocketTower.tscn" type="PackedScene" id=7]
 
-[node name="UI" type="Control" index="0"]
+[node name="UI" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -177,5 +177,7 @@ max_lines_visible = -1
 _sections_unfolded = [ "Rect" ]
 
 [connection signal="turret_bought" from="TopPanel/TurretButton" to="." method="_on_TurretButton_turret_bought"]
+
+[connection signal="turret_bought" from="TopPanel/TurretButton2" to="." method="_on_TurretButton2_turret_bought"]
 
 
