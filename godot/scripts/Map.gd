@@ -67,6 +67,8 @@ func _ready():
 	path_content = path_content.split('\n')
 	self.create_enemies_path(path_content)
 	
+	$EnemiesPath.position = Vector2(TILE_SIZE/2, TILE_SIZE/2)
+	
 	set_process_input(true)
 	start_wave()
 			
