@@ -1,6 +1,6 @@
 extends Control
 
-signal turret_bought_ui(turret_type)
+signal turret_bought_ui(turret_type, turret_icon)
 const PANEL_HEIGHT = 100
 
 func _ready():
@@ -19,5 +19,5 @@ func _ready():
 	$TopPanel/TurretButton2/TurretIcon2.rect_position = icon_pos
 
 
-func _on_TurretButton_turret_bought(turret_type):
-	emit_signal("turret_bought_ui", turret_type)
+func _on_TurretButton_turret_bought(turret_type, turret_icon):
+	emit_signal("turret_bought_ui", turret_type, turret_icon)

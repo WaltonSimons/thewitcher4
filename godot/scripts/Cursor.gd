@@ -1,6 +1,7 @@
 extends Sprite
 
 var tile_size = 64
+onready var original_texture = self.texture
 
 func _ready():
 	# Called when the node is added to the scene for the first time.

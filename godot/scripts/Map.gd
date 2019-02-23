@@ -67,6 +67,7 @@ func _ready():
 	path_content = path_content.split('\n')
 	self.create_enemies_path(path_content)
 	
+	set_process_input(true)
 	start_wave()
 			
 func create_map_tex():	
@@ -112,5 +113,14 @@ func create_enemies_path(layout):
 func start_wave():
 	get_node('EnemySpawner').send_wave(0)
 
-func _on_UI_turret_bought_ui(turret_type):
+func _on_UI_turret_bought_ui(turret_type, turret_icon):
 	turret_to_buy = turret_type
+	cursor.texture = turret_icon
+	
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
+		if turret_to_buy != null:
+			cursor.texture = cursor.original_texture
+			var built_turret = turret_to_buy.instance()
+			add_child(built_turret)
+			built_turret.position = cursor.position

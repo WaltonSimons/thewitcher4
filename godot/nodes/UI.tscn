@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/ui/metalPanel_redCorner.png" type="Texture" id=7]
 [ext_resource path="res://assets/towerdefense/towerDefense_tile250.png" type="Texture" id=8]
 
-[node name="UI" type="Control" index="0"]
+[node name="UI" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
