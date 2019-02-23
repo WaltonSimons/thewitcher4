@@ -1,0 +1,82 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://scripts/Map.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Terrain.gd" type="Script" id=2]
+[ext_resource path="res://assets/tanks/tileSand1.png" type="Texture" id=3]
+[ext_resource path="res://assets/tanks/tileSand2.png" type="Texture" id=4]
+[ext_resource path="res://assets/tanks/tileSand_roadEast.png" type="Texture" id=5]
+[ext_resource path="res://assets/tanks/tileSand_roadNorth.png" type="Texture" id=6]
+[ext_resource path="res://assets/tanks/tileSand_roadCornerLR.png" type="Texture" id=7]
+[ext_resource path="res://assets/tanks/tileSand_roadCornerLL.png" type="Texture" id=8]
+[ext_resource path="res://assets/tanks/tileSand_roadCrossing.png" type="Texture" id=9]
+[ext_resource path="res://assets/tanks/tileSand_roadCornerUR.png" type="Texture" id=10]
+[ext_resource path="res://assets/tanks/tileSand_roadCornerUL.png" type="Texture" id=11]
+[ext_resource path="res://assets/tanks/tileSand_roadSplitN.png" type="Texture" id=12]
+[ext_resource path="res://assets/tanks/tileSand_roadSplitS.png" type="Texture" id=13]
+[ext_resource path="res://assets/tanks/tileSand_roadSplitW.png" type="Texture" id=14]
+[ext_resource path="res://assets/tanks/tileSand_roadSplitE.png" type="Texture" id=15]
+[ext_resource path="res://assets/tanks/tileGrass1.png" type="Texture" id=16]
+[ext_resource path="res://assets/tanks/tileGrass2.png" type="Texture" id=17]
+[ext_resource path="res://assets/tanks/tileGrass_roadEast.png" type="Texture" id=18]
+[ext_resource path="res://assets/tanks/tileGrass_roadNorth.png" type="Texture" id=19]
+[ext_resource path="res://assets/tanks/tileGrass_roadCornerLR.png" type="Texture" id=20]
+[ext_resource path="res://assets/tanks/tileGrass_roadCornerLL.png" type="Texture" id=21]
+[ext_resource path="res://assets/tanks/tileGrass_roadCrossing.png" type="Texture" id=22]
+[ext_resource path="res://assets/tanks/tileGrass_roadCornerUR.png" type="Texture" id=23]
+[ext_resource path="res://assets/tanks/tileGrass_roadCornerUL.png" type="Texture" id=24]
+[ext_resource path="res://assets/tanks/tileGrass_roadSplitN.png" type="Texture" id=25]
+[ext_resource path="res://assets/tanks/tileGrass_roadSplitS.png" type="Texture" id=26]
+[ext_resource path="res://assets/tanks/tileGrass_roadSplitW.png" type="Texture" id=27]
+[ext_resource path="res://assets/tanks/tileGrass_roadSplitE.png" type="Texture" id=28]
+
+[node name="MapTestScene" type="Node" index="0"]
+
+[node name="Map" type="Node2D" parent="." index="0"]
+
+position = Vector2( 485.507, 279.814 )
+scale = Vector2( 1.3355, 1.14075 )
+script = ExtResource( 1 )
+terrain_type = NodePath("GrassyTerrain")
+map_layout = "res://maps/test.map"
+
+[node name="Tiles" type="Node2D" parent="Map" index="0"]
+
+_sections_unfolded = [ "Region" ]
+
+[node name="DesertTerrain" type="Node" parent="Map" index="1"]
+
+script = ExtResource( 2 )
+_sections_unfolded = [ "Pause" ]
+basic1 = ExtResource( 3 )
+basic2 = ExtResource( 4 )
+horizontal = ExtResource( 5 )
+vertical = ExtResource( 6 )
+corner_upper_left = ExtResource( 7 )
+corner_upper_right = ExtResource( 8 )
+crossroads = ExtResource( 9 )
+corner_lower_left = ExtResource( 10 )
+corner_lower_right = ExtResource( 11 )
+splitN = ExtResource( 12 )
+splitS = ExtResource( 13 )
+splitW = ExtResource( 14 )
+splitE = ExtResource( 15 )
+
+[node name="GrassyTerrain" type="Node" parent="Map" index="2"]
+
+script = ExtResource( 2 )
+_sections_unfolded = [ "Pause" ]
+basic1 = ExtResource( 16 )
+basic2 = ExtResource( 17 )
+horizontal = ExtResource( 18 )
+vertical = ExtResource( 19 )
+corner_upper_left = ExtResource( 20 )
+corner_upper_right = ExtResource( 21 )
+crossroads = ExtResource( 22 )
+corner_lower_left = ExtResource( 23 )
+corner_lower_right = ExtResource( 24 )
+splitN = ExtResource( 25 )
+splitS = ExtResource( 26 )
+splitW = ExtResource( 27 )
+splitE = ExtResource( 28 )
+
+
