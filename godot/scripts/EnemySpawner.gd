@@ -42,4 +42,4 @@ func _on_Timer_timeout():
 		$Timer.start()
 		enemy_i += 1
 	
-	spawn_enemy(enemy_i)
+	spawn_enemy(enemy)
