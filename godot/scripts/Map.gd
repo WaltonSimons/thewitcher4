@@ -24,6 +24,17 @@ func map_tile_to_sprite(tile, terrain_type):
 		return get_node(terrain_type).horizontal
 	elif tile == '|':
 		return get_node(terrain_type).vertical
+	elif tile == '+':
+		return get_node(terrain_type).crossroads
+	elif tile == '┴':
+		return get_node(terrain_type).splitN
+	elif tile == '┬':
+		return get_node(terrain_type).splitS
+	elif tile == '┤':
+		return get_node(terrain_type).splitW
+	elif tile == '├':
+		return get_node(terrain_type).splitE
+							
 
 func _ready():	
 	self.map_layout_file.open(map_layout, map_layout_file.READ)
