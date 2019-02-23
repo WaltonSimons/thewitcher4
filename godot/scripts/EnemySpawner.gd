@@ -1,6 +1,7 @@
 extends Node
 
 const TIME_BETWEEN_SPAWNS = 5
+export(Vector2) var spawn_point
 
 export (PackedScene) var enemy0
 export (PackedScene) var enemy1
@@ -16,7 +17,8 @@ var current_wave = 0
 var enemy_i = 0;
 
 func _ready():
-	send_wave(0)
+	#send_wave(0)
+	pass
 
 func send_wave(i):
 	var enemy_i = 0
@@ -32,6 +34,11 @@ func spawn_enemy(i):
 		enemy = enemy1.instance()
 	elif i == 2:
 		enemy = enemy2.instance()
+		
+	print(spawn_point)
+	print(enemy)
+	enemy.transform.origin = spawn_point
+	add_child(enemy)
 
 func _on_Timer_timeout():
 	var wave = waves[current_wave]

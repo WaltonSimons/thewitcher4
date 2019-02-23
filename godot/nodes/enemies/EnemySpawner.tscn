@@ -3,9 +3,10 @@
 [ext_resource path="res://scripts/EnemySpawner.gd" type="Script" id=1]
 [ext_resource path="res://nodes/enemies/Dummy.tscn" type="PackedScene" id=2]
 
-[node name="EnemySpawner" type="Node" index="0"]
+[node name="EnemySpawner" type="Node"]
 
 script = ExtResource( 1 )
+spawn_point = Vector2( 256, 32 )
 enemy0 = ExtResource( 2 )
 enemy1 = null
 enemy2 = null

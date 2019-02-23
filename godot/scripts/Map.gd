@@ -12,6 +12,7 @@ onready var cursor = load("res://nodes/Cursor.tscn").instance()
 
 onready var map_tiles = []
 onready var tile_templ = load("res://nodes/Tile.tscn")
+onready var enemy_spawner = load("res://nodes/enemies/EnemySpawner.tscn").instance()
 
 func map_tile_to_sprite(tile, terrain_type):
 	if tile == 'O':
@@ -42,6 +43,7 @@ func map_tile_to_sprite(tile, terrain_type):
 
 func _ready():	
 	add_child(cursor)
+	add_child(enemy_spawner)
 	
 	$Tiles.transform.origin = Vector2(TILE_SIZE/2, TILE_SIZE/2)
 	cursor.scale = Vector2(TILE_SIZE * 0.01, TILE_SIZE * 0.01)
@@ -62,6 +64,8 @@ func _ready():
 	var path_content = self.map_path_file.get_as_text()
 	path_content = path_content.split('\n')
 	self.create_enemies_path(path_content)
+	
+	start_wave()
 			
 func create_map_tex():	
 	for row in len(self.map_tiles):
@@ -103,3 +107,5 @@ func create_enemies_path(layout):
 		last_node = create_path_node(layout, last_node)
 		
 		
+func start_wave():
+	get_node('EnemySpawner').send_wave(0)

@@ -47,7 +47,7 @@ _data = {
 "points": PoolVector2Array(  )
 }
 
-[node name="MapTestScene" type="Node"]
+[node name="MapTestScene" type="Node" index="0"]
 
 [node name="Map" type="Node2D" parent="." index="0"]
 
