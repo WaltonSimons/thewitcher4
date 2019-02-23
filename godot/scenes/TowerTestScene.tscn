@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://nodes/enemies/Dummy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Tween.gd" type="Script" id=2]
 [ext_resource path="res://nodes/towers/RocketTower.tscn" type="PackedScene" id=3]
+[ext_resource path="res://nodes/towers/Tower.tscn" type="PackedScene" id=4]
 
-[node name="TowerTestScene" type="Node" index="0"]
+[node name="TowerTestScene" type="Node"]
 
 [node name="Dummy" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -20,7 +21,49 @@ playback/repeat = false
 playback/speed = 1.0
 script = ExtResource( 2 )
 
-[node name="Dummy2" parent="." index="1" instance=ExtResource( 1 )]
+[node name="Dummy4" parent="." index="1" instance=ExtResource( 1 )]
+
+position = Vector2( 128.598, 95.6154 )
+
+[node name="Tween" type="Tween" parent="Dummy4" index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+script = ExtResource( 2 )
+
+[node name="Dummy7" parent="." index="2" instance=ExtResource( 1 )]
+
+position = Vector2( 180.149, 94.1835 )
+
+[node name="Tween" type="Tween" parent="Dummy7" index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+script = ExtResource( 2 )
+
+[node name="Dummy12" parent="." index="3" instance=ExtResource( 1 )]
+
+position = Vector2( 101.391, 94.1835 )
+
+[node name="Tween" type="Tween" parent="Dummy12" index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+script = ExtResource( 2 )
+
+[node name="Dummy2" parent="." index="4" instance=ExtResource( 1 )]
 
 position = Vector2( 64.9999, 146 )
 
@@ -34,9 +77,51 @@ playback/repeat = false
 playback/speed = 1.0
 script = ExtResource( 2 )
 
-[node name="Dummy3" parent="." index="2" instance=ExtResource( 1 )]
+[node name="Dummy5" parent="." index="5" instance=ExtResource( 1 )]
 
-position = Vector2( 122, 199 )
+position = Vector2( 136.598, 164.616 )
+
+[node name="Tween" type="Tween" parent="Dummy5" index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+script = ExtResource( 2 )
+
+[node name="Dummy9" parent="." index="6" instance=ExtResource( 1 )]
+
+position = Vector2( 188.149, 163.184 )
+
+[node name="Tween" type="Tween" parent="Dummy9" index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+script = ExtResource( 2 )
+
+[node name="Dummy10" parent="." index="7" instance=ExtResource( 1 )]
+
+position = Vector2( 109.391, 163.184 )
+
+[node name="Tween" type="Tween" parent="Dummy10" index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+script = ExtResource( 2 )
+
+[node name="Dummy3" parent="." index="8" instance=ExtResource( 1 )]
+
+position = Vector2( 66.1531, 230.503 )
 
 [node name="Tween" type="Tween" parent="Dummy3" index="2"]
 
@@ -48,9 +133,55 @@ playback/repeat = false
 playback/speed = 1.0
 script = ExtResource( 2 )
 
-[node name="Tower" parent="." index="3" instance=ExtResource( 3 )]
+[node name="Dummy6" parent="." index="9" instance=ExtResource( 1 )]
 
-position = Vector2( 247.731, 297.85 )
+position = Vector2( 137.752, 249.119 )
+
+[node name="Tween" type="Tween" parent="Dummy6" index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+script = ExtResource( 2 )
+
+[node name="Dummy8" parent="." index="10" instance=ExtResource( 1 )]
+
+position = Vector2( 189.303, 247.687 )
+
+[node name="Tween" type="Tween" parent="Dummy8" index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+script = ExtResource( 2 )
+
+[node name="Dummy11" parent="." index="11" instance=ExtResource( 1 )]
+
+position = Vector2( 110.544, 247.687 )
+
+[node name="Tween" type="Tween" parent="Dummy11" index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+script = ExtResource( 2 )
+
+[node name="Tower" parent="." index="12" instance=ExtResource( 3 )]
+
+position = Vector2( 184.724, 453.935 )
+
+[node name="Tower" parent="Tower" index="4" instance=ExtResource( 4 )]
+
+position = Vector2( 173.802, -405.394 )
 
 
 [editable path="Tower"]

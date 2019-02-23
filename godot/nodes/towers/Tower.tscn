@@ -13,7 +13,7 @@ radius = 10.0
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
-shoot_range = 600
+shoot_range = 250
 shoot_delay = 0.5
 turn_speed = 10
 
