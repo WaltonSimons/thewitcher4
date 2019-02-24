@@ -1,5 +1,7 @@
 extends Sprite
 
+var damage
+
 func emit(size):
 	var time = 1
 	var final_color = modulate
@@ -13,3 +15,4 @@ func emit(size):
 func _on_Area2D_body_shape_entered(body_id, body, body_shape, area_shape):
 	print(body)
 	body.speed_multiplier = 0.5
+	body.take_hit(damage)

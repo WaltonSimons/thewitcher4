@@ -11,5 +11,6 @@ func shoot(shoot_range):
 	aura.modulate = projectile_color
 	get_parent().get_parent().add_child(aura)
 	aura.global_position = $ProjectileOrigin.global_position
+	aura.damage = damage_per_shot
 	aura.emit(2)
 	

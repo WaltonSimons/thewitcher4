@@ -1,6 +1,6 @@
 extends Node
 
-const TIME_BETWEEN_SPAWNS = 5
+const TIME_BETWEEN_SPAWNS = 1
 export(Vector2) var spawn_point
 
 export (PackedScene) var enemy0
